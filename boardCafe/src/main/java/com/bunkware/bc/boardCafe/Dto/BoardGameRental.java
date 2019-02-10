@@ -1,19 +1,30 @@
 package com.bunkware.bc.boardCafe.Dto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
+
+//These would likely be domains
 @Entity
 public class BoardGameRental extends Rental
 {
+    @Column
     private int minPlayers;
+    @Column
     private int maxPlayers;
+    @Column
     private int suggestedAge;
 
 
     public BoardGameRental() {
     }
 
-    public BoardGameRental(int minPlayers, int maxPlayers, int suggestedAge) {
+    public BoardGameRental(int minPlayers, int maxPlayers, int suggestedAge, Double rentalPrice, String desc, String name, int rentalId, String rentalImagePath) {
+        super.setName(name);
+        super.setDesc(desc);
+        super.setRentalPrice(rentalPrice);
+        super.setRentalId(rentalId);
+        super.setRentalImagePath(rentalImagePath);
         this.minPlayers = minPlayers;
         this.maxPlayers = maxPlayers;
         this.suggestedAge = suggestedAge;

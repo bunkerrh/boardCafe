@@ -1,16 +1,26 @@
 package com.bunkware.bc.boardCafe.Dto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
 public class Rental implements Serializable
 {
-  private double rentalPrice;
-  private String desc;
-  private String name;
-  private int    rentalId;
-  private String rentalImagePath;
+
+    @Id
+    @GeneratedValue
+    private int    rentalId;
+    @Column
+    private double rentalPrice;
+    @Column
+    private String desc;
+    @Column
+    private String name;
+    @Column
+    private String rentalImagePath;
 
 
     public Rental() {

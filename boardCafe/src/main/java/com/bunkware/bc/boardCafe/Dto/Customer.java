@@ -1,9 +1,9 @@
 package com.bunkware.bc.boardCafe.Dto;
 
-import javax.persistence.Entity;
 
-@Entity
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
 
     private String firstName;
     private String lastName;
@@ -17,14 +17,17 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, String email, int areaCode, int phoneNumber, int loyaltyPoints, int customerId) {
+    public Customer(String firstName, String lastName, String email, int areaCode, int phoneNumber, int loyaltyPoints) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.areaCode = areaCode;
         this.phoneNumber = phoneNumber;
         this.loyaltyPoints = loyaltyPoints;
-        this.customerId = customerId;
+    }
+
+    public Customer(String firstName) {
+        this.firstName = firstName;
     }
 
     public int getCustomerId() {

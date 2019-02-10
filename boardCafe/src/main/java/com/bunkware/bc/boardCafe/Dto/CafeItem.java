@@ -1,15 +1,25 @@
 package com.bunkware.bc.boardCafe.Dto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 @Entity
 public class CafeItem implements Serializable
 {
+    @Id
+    @GeneratedValue
     private int cafeItemId;
+    @Column
     private double price;
+    @Column
     private String itemName;
+    @Column
     private String desc;
+    @Column
     private int typeId;
+    @Column
     private String cafeItemImagePath;
 
     public CafeItem() {
