@@ -1,47 +1,41 @@
 package com.bunkware.bc.boardCafe.Service;
 
 import com.bunkware.bc.boardCafe.Dto.BoardGameRental;
-import com.bunkware.bc.boardCafe.Dto.Rental;
 import com.bunkware.bc.boardCafe.Repository.BoardGameRentalRepository;
-import com.bunkware.bc.boardCafe.Repository.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class BoardGameRentalService {
 
-
     @Autowired
-    JdbcTemplate jdbcTemplate;
-    private RentalRepository rentalRepository;
-    private BoardGameRentalRepository boardGameRentalRepository;
+    BoardGameRentalRepository boardGameRentalRepository;
 
-    @Autowired
-    public BoardGameRentalService(RentalRepository rentalRepository, BoardGameRentalRepository boardGameRentalRepository) {
-        this.rentalRepository = rentalRepository;
-        this.boardGameRentalRepository = boardGameRentalRepository;
-    }
-
-
-   public BoardGameRental createBoardGame(int minPlayers, int maxPlayers, int suggestedAge, double rentalPrice, String desc, String name, int rentalId, String rentalImagePath)
+   public void createBoardGameRental(BoardGameRental boardGameRental)
    {
-       Optional<Rental> rental = rentalRepository.findById(rentalId);
-       if(rental == null)
-       {
-           throw new RuntimeException("Rental does not exists " + name + ". Rental ID: " + rentalId);
-       }
+       boardGameRentalRepository.createBoardGame(boardGameRental);
+   }
 
-       return boardGameRentalRepository.save((new BoardGameRental(minPlayers, maxPlayers, suggestedAge, rentalPrice, desc, name, rentalId, rentalImagePath)));
+   public List<BoardGameRental> getAllBoardGames()
+   {
+       return boardGameRentalRepository.getAllBoardGames();
    }
 
 
+   public BoardGameRental getBoardGameById (BoardGameRental boardGameRental)
+   {
+       return boardGameRentalRepository.getBoardGameById(boardGameRental);
+   }
 
-    public Iterable<BoardGameRental> lookup()
-    {
-        return boardGameRentalRepository.findAll();
-    }
+   public BoardGameRental getBoardGameByName(BoardGameRental boardGameRental)
+   {
+       return boardGameRentalRepository.getBoardGameByName(boardGameRental);
+   }
 
+   public void editBoardGame(BoardGameRental boardGameRental)
+   {
+     boardGameRentalRepository.editBoardGame(boardGameRental);
+   }
 }

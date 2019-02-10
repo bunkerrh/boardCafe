@@ -2,7 +2,7 @@ package com.bunkware.bc.boardCafe.Implementation.Query;
 
 public class CustomerQuery {
 
-    public static String GET_ALL_CUSTOMERS = "select * from customer";
+    public static String GET_ALL_CUSTOMERS = "select  CUSTOMER_ID, FIRST_NAME, LAST_NAME, EMAIL, AREA_CODE, PHONE_NUMBER, LOYALTY_POINTS from customer";
 
     public static  String GET_CUSTOMER_BY_ID = "SELECT CUSTOMER_ID, FIRST_NAME, LAST_NAME, EMAIL, AREA_CODE, PHONE_NUMBER, LOYALTY_POINTS FROM customer WHERE CUSTOMER_ID = ? ";
 

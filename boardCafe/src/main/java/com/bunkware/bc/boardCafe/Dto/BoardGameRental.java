@@ -6,28 +6,71 @@ import javax.persistence.Entity;
 
 //These would likely be domains
 @Entity
-public class BoardGameRental extends Rental
+public class BoardGameRental
 {
-    @Column
     private int minPlayers;
-    @Column
     private int maxPlayers;
-    @Column
     private int suggestedAge;
+    private int    rentalId;
+    private double rentalPrice;
+    private String desc;
+    private String name;
+    private String rentalImagePath;
 
 
     public BoardGameRental() {
     }
 
-    public BoardGameRental(int minPlayers, int maxPlayers, int suggestedAge, Double rentalPrice, String desc, String name, int rentalId, String rentalImagePath) {
-        super.setName(name);
-        super.setDesc(desc);
-        super.setRentalPrice(rentalPrice);
-        super.setRentalId(rentalId);
-        super.setRentalImagePath(rentalImagePath);
+
+    public BoardGameRental(int minPlayers, int maxPlayers, int suggestedAge, int rentalId, double rentalPrice, String desc, String name, String rentalImagePath) {
         this.minPlayers = minPlayers;
         this.maxPlayers = maxPlayers;
         this.suggestedAge = suggestedAge;
+        this.rentalId = rentalId;
+        this.rentalPrice = rentalPrice;
+        this.desc = desc;
+        this.name = name;
+        this.rentalImagePath = rentalImagePath;
+    }
+
+    public int getRentalId() {
+        return rentalId;
+    }
+
+    public void setRentalId(int rentalId) {
+        this.rentalId = rentalId;
+    }
+
+    public double getRentalPrice() {
+        return rentalPrice;
+    }
+
+    public void setRentalPrice(double rentalPrice) {
+        this.rentalPrice = rentalPrice;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRentalImagePath() {
+        return rentalImagePath;
+    }
+
+    public void setRentalImagePath(String rentalImagePath) {
+        this.rentalImagePath = rentalImagePath;
     }
 
     public int getMinPlayers() {
